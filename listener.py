@@ -11,18 +11,13 @@ def greet():
 
     if not (tailscale_user_name or tailscale_user_login):
         serve_options = {'identified'      : False,
-                         'background_color': '#f2e5bc',
+                         'background_color': '#e3c666',
                          'color'           : '#282828',
-                         'emoji'           : '🤠',
-                         'greeting'        : 'Howdy, internet stranger!',
                         }
     else:
         serve_options = {'identified'      : True,
-                         'background_color': '#228B22',
+                         'background_color': '#3c7b5f',
                          'color'           : '#fff',
-                         'emoji'           : '👯',
-                         'greeting'        : "Now we're friends, "\
-                                 f"{tailscale_user_name} ({tailscale_user_login})!",
                         }
 
     serve_options['invite_link'] = os.environ.get('DEMO_INVITE_LINK')
