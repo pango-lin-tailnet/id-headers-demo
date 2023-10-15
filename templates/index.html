@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:title" content="Tailscale demo @ DevOpsDays">
+    <meta property="og:title" content="Tailscale demo @ All Things Open 2023">
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Welcome to the Tailscale demo for DevOpsDays Chicago.">{% if tailscale_url %}
+    <meta property="og:description" content="Welcome to the Tailscale demo for All Things Open 2023.">{% if tailscale_url %}
     <meta property="og:image" content="{{ tailscale_url + '/static/social.png' }}">
     <meta property="og:url" content="{{ tailscale_url }}">{% endif %}
     <meta name="twitter:card" content="summary_large_image">
 
-    <title>Tailscale demo: DevOpsDays Chicago</title>
+    <title>Tailscale demo: All Things Open 2023</title>
     
     <style>
       body {
@@ -30,10 +30,12 @@
   <body>
 
     {% if identified %}
-    <p>Hello {{ headers['Tailscale-User-Name'] }}! Congratulations, by adding this node to your tailnet, you've been entered to win a Steam Deck from Tailscale.</p>
+    <p>Hello {{ headers['Tailscale-User-Name'] }}!</p>
+    <p>Congratulations, you've successfully added this node to your tailnet, and you're now accessing it through an encrypted WireGuard connection. Pick up a raffle ticket, and you're entered to win a special Lego prize.</p>
     <p>Because you're connected through Tailscale, your user name and login are included with your requests. This is only the case for traffic flowing over your tailnet. You should see this machine in your <a href="https://login.tailscale.com/admin/machines">Tailscale admin console</a>; if you remove it you'll no longer send identity headers with your requests to it.</p>
 
     {% elif not identified %}
+    <p>Welcome to the Tailscale demo for All Things Open 2023. Tailscale is a zero-config WireGuard-based replacement for your VPN.</p>
     {% if invite_link %}<p>To add this node to your tailnet, click <a href="{{invite_link}}" target="_blank">this invite link</a> and log in to Tailscale.</p>{% endif %}
     <p>That will add this machine as a <a href="https://tailscale.com/kb/1084/sharing/">"shared node"</a> to your tailnet, and you'll see how it can serve different content based on Tailscale identity headers. It will only be visible to you—not other users on your tailnet—and will not be able to initiate connections to any of your devices.</p>
     {% endif %}
